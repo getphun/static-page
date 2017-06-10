@@ -16,6 +16,7 @@ return [
         'modules/static-page/model'         => [ 'install', 'remove', 'update' ],
         'modules/static-page/library'       => [ 'install', 'remove', 'update' ],
         'modules/static-page/meta'          => [ 'install', 'remove', 'update' ],
+        'modules/static-page/event'         => [ 'install', 'remove' ],
         'modules/static-page/controller/RobotController.php'    => [ 'install', 'remove', 'update' ],
         'modules/static-page/controller/PageController.php'     => [ 'install', 'remove' ],
         'theme/site/static-page'            => [ 'install', 'remove' ]
@@ -34,7 +35,8 @@ return [
             'StaticPage\\Library\\Robot'                => 'modules/static-page/library/Robot.php',
             'StaticPage\\Meta\\Page'                    => 'modules/static-page/meta/Page.php',
             'StaticPage\\Controller\\RobotController'   => 'modules/static-page/controller/RobotController.php',
-            'StaticPage\\Controller\\PageController'    => 'modules/static-page/controller/PageController.php'
+            'StaticPage\\Controller\\PageController'    => 'modules/static-page/controller/PageController.php',
+            'StaticPage\\Event\\PageEvent'              => 'modules/static-page/event/PageEvent.php'
         ],
         'files' => []
     ],
@@ -57,6 +59,18 @@ return [
                 'rule' => '/page',
                 'handler' => 'StaticPage\\Controller\\Page::index'
             ]
+        ]
+    ],
+    
+    'events' => [
+        'static-page:created' => [
+            'static-page' => 'StaticPage\\Event\\PageEvent::created'
+        ],
+        'static-page:updated' => [
+            'static-page' => 'StaticPage\\Event\\PageEvent::updated'
+        ],
+        'static-page:deleted' => [
+            'static-page' => 'StaticPage\\Event\\PageEvent::deleted'
         ]
     ],
     
