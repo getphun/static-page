@@ -49,6 +49,7 @@ return [
                 'handler' => 'StaticPage\\Controller\\Robot::feed'
             ],
             'siteStaticPageSingle' => [
+                'priority' => 0,
                 'rule' => '/page/:slug',
                 'handler' => 'StaticPage\\Controller\\Page::single'
             ],
