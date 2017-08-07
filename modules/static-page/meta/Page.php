@@ -43,7 +43,7 @@ class Page
         
         // my rss feed?
         if(module_exists('robot'))
-            $index->_metas['feed'] = $dis->router->to('siteStaticPageFeedXML');
+            $index->_metas['feed'] = $dis->router->to('siteStaticPageFeed');
         
         // Schema
         $schema = [

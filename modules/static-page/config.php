@@ -25,6 +25,7 @@ return [
         'site-param',
         'formatter',
         'site',
+        'site-meta',
         '/db-mysql',
         '/robot'
     ],
@@ -43,13 +44,9 @@ return [
     
     '_routes' => [
         'site' => [
-            'siteStaticPageFeedXML' => [
+            'siteStaticPageFeed' => [
                 'rule' => '/page/feed.xml',
-                'handler' => 'StaticPage\\Controller\\Robot::feedXml'
-            ],
-            'siteStaticPageFeedJSON' => [
-                'rule' => '/page/feed.json',
-                'handler' => 'StaticPage\\Controller\\Robot::feedJson'
+                'handler' => 'StaticPage\\Controller\\Robot::feed'
             ],
             'siteStaticPageSingle' => [
                 'rule' => '/page/:slug',
