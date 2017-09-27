@@ -49,8 +49,11 @@ class PageController extends \SiteController
         $slug = $this->param->slug;
         
         $page = SPage::get(['slug'=>$slug], false);
-        if(!$page)
+        if(!$page){
+            if(module_exists('slug-history'))
+                $this->slug->goto('static-page', $slug, 'siteStaticPageSingle');
             return $this->show404();
+        }
         
         $cache = is_dev() ? null : 60*60*24*7;
         
