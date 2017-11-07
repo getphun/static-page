@@ -51,12 +51,7 @@ class Page
             '@type'         => 'CollectionPage',
             'name'          => $meta_title,
             'description'   => $meta_desc,
-            'publisher'     => [
-                '@type'         => 'Organization',
-                'name'          => $dis->config->name,
-                'url'           => $base_url,
-                'logo'          => $meta_image
-            ],
+            'publisher'     => $dis->meta->schemaOrganization(),
             'url'           => $meta_url,
             'image'         => $meta_image
         ];
@@ -104,12 +99,7 @@ class Page
                 'dateCreated'   => $page->created,
                 'dateModified'  => $page->updated,
                 'datePublished' => $page->created,
-                'publisher'     => [
-                    '@type'         => 'Organization',
-                    'name'          => $dis->config->name,
-                    'url'           => $base_url,
-                    'logo'          => $meta_image
-                ],
+                'publisher'     => $dis->meta->schemaOrganization(),
                 'thumbnailUrl'  => $meta_image,
                 'url'           => $meta_url,
                 'image'         => $meta_image
